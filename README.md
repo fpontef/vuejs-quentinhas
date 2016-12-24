@@ -50,6 +50,7 @@ Backend using a [REST API with Laravel PHP Framework](https://github.com/sobrale
 ![Client List](https://cloud.githubusercontent.com/assets/5157861/21467208/2d9b9b3e-c9c4-11e6-8244-1fb59a5a4e3e.png?raw=true "Client List")
 
 ## The backend send a JSON like this:
+####Client JSON:  /api/cliente
 ```
 [
 {
@@ -74,6 +75,51 @@ Backend using a [REST API with Laravel PHP Framework](https://github.com/sobrale
 }
 ]
 ```
+
+#### Pedido:  /api/pedido/1?includes=produto
+```
+{
+"id": 1,
+"observacao": "Entregar.",
+"status": 3,
+"valor_entrega": 4.5,
+"cliente_id": 2,
+"entregadores_id": 2,
+"created_at": "2016-11-25 20:06:03",
+"updated_at": "2016-11-25 21:52:29",
+  "produto": [
+  {
+    "id": 1,
+    "nome": "Marmita 1",
+    "descricao": "Arroz, feijão, bife e salada de tomate.",
+    "custo": 15,
+    "created_at": "2016-11-25 20:05:12",
+    "updated_at": "2016-11-25 20:05:12",
+    "pivot": {
+      "pedido_id": 1,
+      "produto_id": 1,
+      "quantidade": 2,
+      "valor": 15
+    }
+  },
+    {
+    "id": 3,
+    "nome": "Marmita 3",
+    "descricao": "Arroz, feijão, file de frango, creme de milho.",
+    "custo": 14,
+    "created_at": "2016-11-25 20:05:12",
+    "updated_at": "2016-11-25 20:05:12",
+    "pivot": {
+      "pedido_id": 1,
+      "produto_id": 3,
+      "quantidade": 2,
+      "valor": 14
+    }
+  }
+ ]
+}
+```
+
 
 ## Build Setup
 
